@@ -1,7 +1,7 @@
 {
     "AWS": {
-        "ACCESS_KEY_ID": "AKIA55DV3VENXANGK7J5",
-        "SECRET_ACCESS_KEY": "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",
+        "ACCESS_KEY_ID": "",
+        "SECRET_ACCESS_KEY": "",
         "STORAGE_BUCKET_NAME": "weproject"
     }
 }
