@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}
+메인
+{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/main/index.css' %}" >
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+    <div id="content-head">
+        <div id="content-head-wrapper">
+            <img class="btn-my workspace" src="{% static 'images/my-workspace-normal.png' %}" alt="">
+            <img class="btn-my paintings" src="{% static 'images/my-paintings-normal.png' %}" alt="">
+        </div>
+    </div>
+    <div id="content-body">
+        <div id="content-body-wrapper"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/main/index.js' %}"></script>
+{% endblock %}
