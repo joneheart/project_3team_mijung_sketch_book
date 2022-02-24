@@ -38,8 +38,12 @@ const showPaintingInfo = (e) => {
     const modalPopup = document.querySelector('.modal-popup');
     modalPopup.appendChild(getImgElement(famousPaintingSrc));
 
-    // temp data
-    const tempData = ["Mona Lisa", "1503", "Leonardo Da Vinci"]
+    const divHasInfo = e.target.parentElement;
+    const tempData = [
+        divHasInfo.getAttribute('data-title'),
+        divHasInfo.getAttribute('data-year'),
+        divHasInfo.getAttribute('data-author'),    
+    ]
     const paintingsAllInfo = document.querySelectorAll('.paintings-info h4');
     paintingsAllInfo.forEach((eachInfo, i) => {
         eachInfo.innerText = tempData[i];

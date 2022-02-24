@@ -22,11 +22,11 @@
         <div id="content-body-wrapper">
             <!-- left side -->
             <div class="content-body-left">
-            {% for i in paintings %}
+            {% for pic in pictures %}
                 {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'left' %}
-                    {% with img_path='images/famous_paintings/paintings_'|add:i|add:'.jpeg' %}
-                    <div class="img-wrapper">
+                    {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
                         <img class="famous-paintings" src="{% static img_path %}" alt="">
                     </div>
                     {% endwith %}
@@ -36,11 +36,11 @@
             
             <!-- right side -->
             <div class="content-body-right">
-            {% for i in paintings %}
-            {% cycle 'left' 'right' as sides silent %}
+            {% for pic in pictures %}
+                {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'right' %}
-                    {% with img_path='images/famous_paintings/paintings_'|add:i|add:'.jpeg' %}
-                    <div class="img-wrapper">
+                    {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
                         <img class="famous-paintings" src="{% static img_path %}" alt="">
                     </div>
                     {% endwith %}
