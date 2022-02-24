@@ -134,5 +134,6 @@ dmypy.json
 .idea/vcs.xml
 .idea/inspectionProfiles/profiles_settings.xml
 
+.aws.json
 aws.json
-config/aws.json
+project_3team_mijung_sketch_book/config/aws.json
