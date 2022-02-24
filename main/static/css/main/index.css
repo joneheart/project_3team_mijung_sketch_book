@@ -65,11 +65,6 @@
     margin-left: 10px;
 }
 
-.content-body-left .left-img-wrapper > img{
-    width: 100%;
-    border-radius: 15px;
-}
-
 #content-body-wrapper .content-body-right {
     display: flex;
     flex-direction: column;
@@ -78,7 +73,21 @@
     margin: 0 10px;
 }
 
-.content-body-right .right-img-wrapper > img {
+.img-wrapper {
+    margin-bottom: 8px;
+}
+
+.img-wrapper .famous-paintings{
     width: 100%;
     border-radius: 15px;
+}
+
+.famous-paintings:hover {
+    transition: transform .3s;
+    -ms-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+    
+    border: 3px solid #ff4400;
+    box-sizing: border-box;
 }

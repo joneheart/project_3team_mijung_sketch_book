@@ -14,12 +14,40 @@
 <div id="content-wrapper">
     <div id="content-head">
         <div id="content-head-wrapper">
-            <img class="btn-my workspace" src="{% static 'images/my-workspace-normal.png' %}" alt="">
+            <img class="btn-my workspace" src="{% static 'images/my-workspace-normal.png' %}" alt=""> 
             <img class="btn-my paintings" src="{% static 'images/my-paintings-normal.png' %}" alt="">
         </div>
     </div>
     <div id="content-body">
-        <div id="content-body-wrapper"></div>
+        <div id="content-body-wrapper">
+            <!-- left side -->
+            <div class="content-body-left">
+            {% for i in paintings %}
+                {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'left' %}
+                    {% with img_path='images/famous_paintings/paintings_'|add:i|add:'.jpeg' %}
+                    <div class="img-wrapper">
+                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            
+            <!-- right side -->
+            <div class="content-body-right">
+            {% for i in paintings %}
+            {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'right' %}
+                    {% with img_path='images/famous_paintings/paintings_'|add:i|add:'.jpeg' %}
+                    <div class="img-wrapper">
+                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
