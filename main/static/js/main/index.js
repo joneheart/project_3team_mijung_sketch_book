@@ -1,7 +1,7 @@
 
 const mouseEnterMyBtn = (e) => {
     const curClassName = e.target.classList[1];
-    const imgSrc = `/static/images/my-${curClassName}-activate.png`
+    const imgSrc = `/static/images/my-${curClassName}-activate.gif`
     e.target.setAttribute('src', imgSrc);
 }
 
