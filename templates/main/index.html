@@ -1,9 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+메인
+{% endblock %}
+
 {% load static %}
-{% for i in pictures %}
-    <p>
-        {{ i.title }}
-        {% with link='style_picture_img/'|add:i.enl_title|add:'.jpg' %}
-            <img src="{% static link %}">
-        {% endwith %}
-    </p>
-{% endfor %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/main/index.css' %}" >
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+    <div id="content-head">
+        <div id="content-head-wrapper">
+            <img class="btn-my workspace" src="{% static 'images/my-workspace-normal.png' %}" alt=""> 
+            <img class="btn-my paintings" src="{% static 'images/my-paintings-normal.png' %}" alt="">
+        </div>
+    </div>
+    <div id="content-body">
+        <div id="content-body-wrapper">
+            <!-- left side -->
+            <div class="content-body-left">
+            {% for pic in pictures %}
+                {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'left' %}
+                    {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
+                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            
+            <!-- right side -->
+            <div class="content-body-right">
+            {% for pic in pictures %}
+                {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'right' %}
+                    {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
+                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-background">
+    <div class="modal-window">
+        <div class="modal-popup">
+            <div class="paintings-info">
+                <div id="info-top">
+                    <h4></h4>
+                    <h4></h4>
+                    <h4></h4>
+                </div>
+                <div id="info-bottom">
+                    <button id="select-painting">선택</button>
+                    <button id="select-cancel">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/main/index.js' %}"></script>
+{% endblock %}
