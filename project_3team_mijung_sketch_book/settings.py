@@ -85,6 +85,9 @@ DATABASES = {
         'PASSWORD': 'qwer1234',
         'HOST': 'database-1.ccgfvfq3lbj7.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
+
+        'OPTIONS': { # MySQL Strict Mode is not set for database connection 'default' 오류로 인해 추가
+                         'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'", }
     }
 }
 
