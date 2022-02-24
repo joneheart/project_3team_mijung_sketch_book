@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BasePicture
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
@@ -24,13 +24,15 @@ def home(request):
             picture_list.append(p)
 
 
-        return render(request, 'main/main_page.html', {'pictures' : picture_list})
+        return render(request, 'main/index.html', {'pictures' : picture_list})
 
 
 
 # 선택한 파일 이름, 업로드 한 파일 받기
 def upload(request):
     pass
+
+
 
 
 

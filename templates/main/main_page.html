@@ -1,9 +1,0 @@
-{% load static %}
-{% for i in pictures %}
-    <p>
-        {{ i.title }}
-        {% with link='style_picture_img/'|add:i.enl_title|add:'.jpg' %}
-            <img src="{% static link %}">
-        {% endwith %}
-    </p>
-{% endfor %}
