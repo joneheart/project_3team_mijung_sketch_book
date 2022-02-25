@@ -19,7 +19,7 @@ const mouseClickMyBtn = (e) => {
         location.href = "/mypage" 
     } else { 
         if (selectedPainting) {
-            location.href = `/paint/${selectedPainting.dataset.id}`
+            location.href = `/paint/${selectedPainting.parentElement.dataset.id}`
         } else {
             alert("앗! 작업 할 명화를 놓고 가셨나요?");
         }
