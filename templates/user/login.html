@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" type="text/css" href="/static/login.css">
+</head>
+<body>
+    <div id="box">
+        <img id="logo" src="https://ifh.cc/g/VQQqQB.png">
+        <form id="form-area" method="post" action="/login/">
+            {% csrf_token %}
+            <div id="login">
+            <li><input type="email" name="email" placeholder="EMAIL" style="margin-bottom: 50px"></li>
+            <li><input type="password" name="password" placeholder="PW" style="margin-bottom: 50px"></li>
+            <li><button id="login_btt"><span>로그인</span></button>
+        </form>
+                <ul id="site_btt">
+                    <form method="post" action={% provider_login_url "naver" %}>
+                    {% csrf_token %}
+                    <li><button type="submit" id="n_btt"></button></li>
+                    </form>
+                    <form method="post" action={% provider_login_url "kakao" %}>
+                    {% csrf_token %}
+                    <li><button type="submit" id="k_btt"></button></li>
+                    </form>
+                    <li><button id="f_btt"></button></li>
+                </ul>
+            <li><button id="sign_move">오늘 처음이신가요? 회원가입 딸깍!</button></li>
+            </div>
+    </div>
+</body>
+</html>
