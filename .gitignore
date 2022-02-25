@@ -138,3 +138,6 @@ dmypy.json
 .aws.json
 aws.json
 project_3team_mijung_sketch_book/config/aws.json
+
+user/migrations
+main/migrations
