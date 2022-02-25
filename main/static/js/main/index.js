@@ -113,9 +113,34 @@ const escCancel = (e) => {
     }
 }
 
+const removeLazyClass = () => {
+    const divContentWrapper = document.body.children[0];
+    const lazyloadImages = document.querySelectorAll("img.lazy");
+    const scrollTop = divContentWrapper.scrollTop;
+    lazyloadImages.forEach(function(img) {
+        if (img.offsetTop < (window.innerHeight + scrollTop)) {
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+        }
+    });
+    if (lazyloadImages.length == 0) {
+        divContentWrapper.removeEventListener('scroll', lazyload);
+        window.removeEventListener('resize', lazyload);
+        window.removeEventListener('orientationChange', lazyload);
+    }
+}
+
+const lazyload = () => {
+    if (lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+    }
+    lazyloadThrottleTimeout = setTimeout(removeLazyClass, 20);
+}
+
 // 실행부
 let clickedPaintingElement = null;
 let selectedPainting = null;
+let lazyloadThrottleTimeout;
 
 const myButtons = document.querySelectorAll('.btn-my');
 for (let i=0; i<myButtons.length; i++) {
@@ -124,13 +149,21 @@ for (let i=0; i<myButtons.length; i++) {
     myButtons[i].addEventListener('click', mouseClickMyBtn);
 }
 
-const famousPaintings = document.querySelectorAll('.famous-paintings');
-for (let i=0; i<famousPaintings.length; i++) {
-    famousPaintings[i].addEventListener('click', showPaintingInfo);
-}
-
 document.querySelector('.modal-window').addEventListener('click', clickModalWindow);
 document.querySelector('#select-painting').addEventListener('click', selectPainting);
 document.querySelector('#select-cancel').addEventListener('click', selectCancel);
 
 window.addEventListener('keydown', escCancel);
+
+document.addEventListener("DOMContentLoaded", function() {
+    const famousPaintings = document.querySelectorAll('.famous-paintings');
+    for (let i=0; i<famousPaintings.length; i++) {
+        famousPaintings[i].addEventListener('click', showPaintingInfo);
+    }
+
+    const divContentWrapper = document.body.children[0];
+    
+    divContentWrapper.addEventListener('scroll', lazyload);
+    window.addEventListener('resize', lazyload);
+    window.addEventListener('orientationChange', lazyload);
+});
