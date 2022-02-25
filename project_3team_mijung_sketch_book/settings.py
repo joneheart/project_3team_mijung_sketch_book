@@ -27,6 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#로그인과정전에 누구한테 맡길지
+AUTHENTICATION_BACKENDS=[
+    'django.contrib.auth.backends.ModelBackend',#기본장고 유저
+    'allauth.account.auth_backends.AuthenticationBackend',#소셜로그인 인증체계
+]
 
 # Application definition
 
@@ -40,7 +45,25 @@ INSTALLED_APPS = [
     'user',
     'main',
     'storages',
+
+
+    # 소셜 로그인을 위한 allauth
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.naver',
+    'allauth.socialaccount.providers.kakao',
 ]
+
+SITE_ID = 1
+
+# 로그인 후 redirect route
+LOGIN_REDIRECT_URL = '/main'
+# 로그아웃 후 redirect route
+ACCOUNT_LOGOUT_REDIRECT_URL = '/login'
+# 로그아웃 버튼 클릭시 자동 로그아웃
+ACCOUNT_LOGOUT_ON_GET = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +108,6 @@ DATABASES = {
         'PASSWORD': 'qwer1234',
         'HOST': 'database-1.ccgfvfq3lbj7.ap-northeast-2.rds.amazonaws.com',
         'PORT': '3306',
-
         'OPTIONS': { # MySQL Strict Mode is not set for database connection 'default' 오류로 인해 추가
                          'init_command' : "SET sql_mode='STRICT_TRANS_TABLES'", }
     }
@@ -133,7 +155,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# AbstractUser 사용을 위한 할당
+AUTH_USER_MODEL = 'user.UserModel'
 
 import os
 import json
