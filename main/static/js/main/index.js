@@ -14,11 +14,16 @@ const mouseLeaveMyBtn = (e) => {
 const mouseClickMyBtn = (e) => {
     const curClassName = e.target.classList[1];
     const isClickedMyPaintings = curClassName === "paintings" ? true : false;
+    
     if (isClickedMyPaintings) {
-        location.href = "#" // go to my paintings
-    } else {
-        location.href = "#" // go to my workspace
-    }
+        location.href = "/mypage" 
+    } else { 
+        if (selectedPainting) {
+            location.href = `/paint/${selectedPainting.dataset.id}`
+        } else {
+            alert("앗! 작업 할 명화를 놓고 가셨나요?");
+        }
+    } 
 }
 
 const getImgElement = (imgSrc) => {
