@@ -7,14 +7,14 @@ class UserModel(AbstractUser):
     class Meta:
         db_table = 'user'
 
-    # username = models.CharField(max_length=150,)
-    # email = models.EmailField(
-    #     verbose_name='email address',
-    #     max_length=255,
-    #     unique=True,
-    # )
+    username = models.CharField(max_length=150,)
+    email = models.EmailField(
+        verbose_name='email address',
+        max_length=255,
+        unique=True,
+    )
     my_pictures = models.TextField(default='')
 
     #usermodel custom
-    # USERNAME_FIELD = 'email'
-    # REQUIRED_FIELDS = ['email', 'password']
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []

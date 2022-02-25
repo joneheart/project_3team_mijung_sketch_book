@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SIGN</title>
+    {% load static %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/user/sign.css' %}" >
+    {% endblock %}
+</head>
+<body>
+    <div id="box">
+        <img id="logo" src="https://ifh.cc/g/VQQqQB.png">
+        <form id="form-area" method="post" action="/sign-up/">
+            {% csrf_token %}
+        <div id="login">
+            <li><input type="email" name="email" placeholder="EMAIL" style="margin-bottom: 30px"></li>
+            <li><input type="text" name="username" placeholder="NAME" style="margin-bottom: 30px"></li>
+            <li><input type="password" name="password" placeholder="PW" style="margin-bottom: 30px"></li>
+            <li><input type="password" placeholder="PW 재 입력해 주세요" style="margin-bottom: 80px"></li>
+            <li><button id="login_btt"><span>회원가입</span></button>
+
+        </div>
+        </form>
+    </div>
+</body>
+</html>
