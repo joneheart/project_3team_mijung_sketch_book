@@ -27,7 +27,11 @@
                 {% if sides == 'left' %}
                     {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
                     <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
-                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                        {% if forloop.counter0 < 5%}
+                            <img class="famous-paintings" src="{% static img_path %}" data-id="{{pic.id}}" alt="">
+                        {% else %}
+                            <img class="famous-paintings lazy" data-src="{% static img_path %}" alt="">
+                        {% endif %}
                     </div>
                     {% endwith %}
                 {% endif %}
@@ -41,7 +45,11 @@
                 {% if sides == 'right' %}
                     {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
                     <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}">
-                        <img class="famous-paintings" src="{% static img_path %}" alt="">
+                        {% if forloop.counter0 < 6%}
+                            <img class="famous-paintings" src="{% static img_path %}" data-id="{{pic.id}}" alt="">
+                        {% else %}
+                            <img class="famous-paintings lazy" data-src="{% static img_path %}" alt="">
+                        {% endif %}
                     </div>
                     {% endwith %}
                 {% endif %}
