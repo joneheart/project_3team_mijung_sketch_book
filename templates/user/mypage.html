@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+나의 유화
+{% endblock %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/user/mypage.css' %}" >
+{% endblock %}
+
+{% block content %}
+<div id="content-wrapper">
+    <div id="content-head">
+        <div id="head-wrapper">
+            <div id="back-arrow-wrapper">
+                <img src="{% static 'images/back-arrow.png' %}" alt="">
+            </div>
+            <div id="logo-wrapper">
+                <img src="{% static 'images/logo-mypage.png' %}" alt="">
+                <form action="/accounts/logout/">
+                    {% csrf_token %}
+                    <img id="img-logout" src="{% static 'images/logou-pen.png' %}" alt="">
+                </form>
+                <span>나의 이름</span>
+            </div>
+        </div>
+    </div>
+    <div id="content-body"></div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/user/mypage.js' %}"></script>
+{% endblock %}

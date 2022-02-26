@@ -1,0 +1,73 @@
+@font-face{
+    font-family:'Jayoo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_06@1.0/Jayoo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Jayoo';
+}
+
+#content-wrapper {
+    background-color: rgb(234, 242, 251);
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    z-index: 1;
+}
+
+/* content head */
+#content-wrapper #content-head {
+    width: 412px;
+    position: sticky;
+    padding-top: 24px;
+    top: -24px;
+}
+
+#content-head #head-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#head-wrapper #back-arrow-wrapper {
+    margin-left: 20px;
+}
+
+#back-arrow-wrapper > img {
+    width: 57px;
+    cursor: pointer;
+}
+
+#head-wrapper #logo-wrapper {
+    text-align: center;
+}
+
+#logo-wrapper > img {
+    /* position: relative; */
+    width: 306px;
+    margin-right: 14px;
+}
+
+#logo-wrapper > form > img {
+    position: relative;
+    bottom: 88px;
+    left: 66px;
+    width: 100px;
+
+    cursor: pointer;
+    opacity: 0;
+}
+
+#logo-wrapper > span {
+    position: relative;
+    bottom: 262px;
+    right: 38px;
+    
+    color: blue;
+    font-size: 35px;
+}
+
+.invisible {
+    z-index: -1;
+}
