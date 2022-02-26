@@ -18,7 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('main/', include('main.urls')),
-    path('', include('user.urls')),
+    path('', include('main.urls')),
+    path('', include('user.urls')), # landing page is user/login
     path('accounts/', include('allauth.urls')),
 ]

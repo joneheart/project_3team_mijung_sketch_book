@@ -17,6 +17,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='index'),
-    path('paint', views.paint, name='upload'),
+    path('main', views.index, name='index'), # GET - main page
+    path('paint/<int:id>/', views.paint, name='paint'), # GET - paint page
+    path('paint', views.paint), # POST - 제출
+    path('result', views.result, name='result'), # GET - result page
 ]

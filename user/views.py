@@ -31,7 +31,7 @@ def login(request):
         email = request.POST.get('email', '')
         password = request.POST.get('password', '')
         print(email, password)
-        me = auth.authenticate(request,email=email, password=password)
+        me = auth.authenticate(request, email=email, password=password)
         if me is not None: # 일치하는 user가 있다면
             auth.login(request, me)
             return redirect('/main')
