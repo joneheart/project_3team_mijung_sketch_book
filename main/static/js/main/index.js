@@ -47,17 +47,22 @@ const showPaintingInfo = (e) => {
     const tempData = [
         divHasInfo.getAttribute('data-title'),
         divHasInfo.getAttribute('data-year'),
-        divHasInfo.getAttribute('data-author'),    
+        divHasInfo.getAttribute('data-author'),
+        divHasInfo.getAttribute('data-intro'),    
     ]
-    const paintingsAllInfo = document.querySelectorAll('.paintings-info h4');
+    
+    const paintingsAllInfo = document.querySelectorAll('.paintings-info h3');
     paintingsAllInfo.forEach((eachInfo, i) => {
         eachInfo.innerText = tempData[i];
     })
 
     const imgHeight = modalPopup.children[1].height; // 모달 속 명화 이미지 높이
     const paintingsInfoDiv = document.querySelector('.paintings-info'); // 명화 정보 div select
+    paintingsInfoDiv.style.top = `${imgHeight}px`;
+
+    const wholeBodyHeight = document.querySelector('#content-wrapper').offsetHeight;
     const infoHeight = paintingsInfoDiv.offsetHeight;
-    paintingsInfoDiv.style.top = `${imgHeight - infoHeight}px`;
+    modalPopup.style.top = `${(wholeBodyHeight - (imgHeight+infoHeight))/2}px`
 
     document.querySelector('.modal-background').classList.toggle("show");
 }

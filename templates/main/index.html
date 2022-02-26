@@ -26,7 +26,7 @@
                 {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'left' %}
                     {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
-                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}">
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.intro}}">
                         {% if forloop.counter0 < 5%}
                             <img class="famous-paintings" src="{% static img_path %}" alt="">
                         {% else %}
@@ -44,7 +44,7 @@
                 {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'right' %}
                     {% with img_path='style_picture_img/'|add:pic.enl_title|add:'.jpeg' %}
-                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}">
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.intro}}">
                         {% if forloop.counter0 < 6%}
                             <img class="famous-paintings" src="{% static img_path %}" alt="">
                         {% else %}
@@ -64,9 +64,10 @@
         <div class="modal-popup">
             <div class="paintings-info">
                 <div id="info-top">
-                    <h4></h4>
-                    <h4></h4>
-                    <h4></h4>
+                    <h3></h3>
+                    <h3></h3>
+                    <h3></h3>
+                    <h3></h3>
                 </div>
                 <div id="info-bottom">
                     <button id="select-painting">선택</button>
