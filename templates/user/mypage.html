@@ -23,7 +23,7 @@
                     {% csrf_token %}
                     <img id="img-logout" src="{% static 'images/logou-pen.png' %}" alt="">
                 </form>
-                <span id="myname">나의이름</span>
+                <span id="myname">{{ user.username }}</span>
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
                 {% if sides == 'left' %}
                     {% with 'style_picture_img/'|add:i|add:'.jpeg' as img_path %}
                     {# <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.id}}"> #}
-                    <div class="img-wrapper" data-title="Awesome point" data-year="2022" data-author="Codingcoonie" data-id="{{pic.id}}" data-intro="Hello This is...">
+                    <div class="img-wrapper" data-title="Awesome point" data-year="2022" data-author="Codingcoonie" data-id="1" data-intro="Hello This is...">
                         {% if forloop.counter0 < 5%}
                             <img class="famous-paintings" src="{% static img_path %}" alt="">
                         {% else %}
