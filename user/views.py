@@ -21,19 +21,16 @@ def sign_up(request):
             return redirect('/login', {'error':'사용자가 이미 존재합니다.'})
         else:
             UserModel.objects.create_user(email=email, username=username, password=password)
-            return redirect('/login')
+            return redirect('/')
     else:
         # pass
-        return render(request, 'user/sign_up.html')
+        return render(request, 'user/sign.html')
 
 def login(request):
     if request.method == 'POST':
         email = request.POST.get('email', '')
         password = request.POST.get('password', '')
-        username = request.POST.get('username', '')
-
-        print(email, password)
-        me = auth.authenticate(request, username=username, email=email, password=password)
+        me = auth.authenticate(request, email=email, password=password)
         if me is not None: # 일치하는 user가 있다면
             auth.login(request, me)
             return redirect('/main')
@@ -41,7 +38,6 @@ def login(request):
 
         else: # 일치하는 user가 없다면
             messages.add_message(request, messages.WARNING, '이메일 혹은 패스워드가 맞지 않습니다.')
-            print('로그인 못함')
             return render(request, 'user/login.html')
 
     else:

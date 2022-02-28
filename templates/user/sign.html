@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>SIGN</title>
-    <link rel="stylesheet" type="text/css" href="/static/sign.css">
+    {% load static %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/user/sign.css' %}" >
+    {% endblock %}
 </head>
 <body>
     <div id="box">
