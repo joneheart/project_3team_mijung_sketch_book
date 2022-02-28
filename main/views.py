@@ -74,5 +74,5 @@ def paint(request):
 
 @login_required(login_url='/login')
 def result(request):
-    
+
     pass
