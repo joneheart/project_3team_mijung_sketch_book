@@ -66,7 +66,11 @@ const clickModalWindow = (e) => {
 }
 
 const doDelete = (e) => {
-    closeModal(document.querySelector('.modal-window'));
+    const selectPaintingId = clickedPaintingElement.parentElement.dataset.id;
+    const confirmAnswer = confirm("정말 삭제 하시겠습니까?");
+    if (confirmAnswer) {
+        location.href = `/mypage/${selectPaintingId}`;
+    }
 }
 
 const doCancel = (e) => {
@@ -97,6 +101,7 @@ const lazyload = () => {
     lazyloadThrottleTimeout = setTimeout(removeLazyClass, 20);
 }
 
+let clickedPaintingElement;
 let lazyloadThrottleTimeout;
 
 document.querySelector('#img-logout').addEventListener('mouseover', enterLogout);
