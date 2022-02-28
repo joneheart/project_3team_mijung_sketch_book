@@ -84,6 +84,25 @@ const doDownload = () => {
     })
 }
 
+const doShare = () => {
+    const infoShareElement = document.querySelector('.info-share');
+    infoShareElement.classList.toggle('hide');
+}
+
+const clickShareButton = (e) => {
+    sharePlatform = e.target.parentElement.id;
+    if (sharePlatform == 'twitter') {
+        // 트위터
+        console.log(sharePlatform)
+    } else if (sharePlatform == 'Facebook') {
+        // 페이스북
+        console.log(sharePlatform)
+    } else {
+        // 클립보드
+        console.log(sharePlatform)
+    }
+}
+
 const doDelete = () => {
     const selectPaintingId = clickedPaintingElement.parentElement.dataset.id;
     const confirmAnswer = confirm("정말 삭제 하시겠습니까?");
@@ -120,6 +139,7 @@ const lazyload = () => {
     lazyloadThrottleTimeout = setTimeout(removeLazyClass, 20);
 }
 
+// 실행부
 let clickedPaintingElement;
 let lazyloadThrottleTimeout;
 
@@ -130,6 +150,7 @@ document.querySelector('#back-arrow-wrapper > img').addEventListener('click', go
 
 document.querySelector('.modal-window').addEventListener('click', clickModalWindow);
 document.querySelector('#do-download').addEventListener('click', doDownload);
+document.querySelector('#do-share').addEventListener('click', doShare);
 document.querySelector('#do-delete').addEventListener('click', doDelete);
 document.querySelector('#do-cancel').addEventListener('click', doCancel);
 
@@ -150,4 +171,12 @@ window.onload = function() {
     // 로그아웃 버튼 효과
     document.querySelector('#img-logout').style.opacity = '0';
     document.querySelector('#img-logout').style.transition = 'opacity 1.5s';
+
+    const shareButtons = document.querySelectorAll('.share-button');
+    console.log(shareButtons);
+    for (let i=0; i<shareButtons.length; i++) {
+        shareButtons[i].addEventListener('click', clickShareButton);
+    }
 }
+
+// https://www.flaticon.com/free-icon/twitter_145812?term=twitter&page=1&position=4&page=1&position=4&related_id=145812&origin=search

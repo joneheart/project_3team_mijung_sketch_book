@@ -185,6 +185,22 @@
     cursor: pointer;
 }
 
+.info-share {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.share-button {
+    width: 50px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
 form {
     width: 0px;
     height: 0px;
