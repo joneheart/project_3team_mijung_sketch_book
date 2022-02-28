@@ -23,11 +23,69 @@
                     {% csrf_token %}
                     <img id="img-logout" src="{% static 'images/logou-pen.png' %}" alt="">
                 </form>
-                <span>나의 이름</span>
+                <span id="myname">나의이름</span>
             </div>
         </div>
     </div>
-    <div id="content-body"></div>
+    <div id="content-body">
+        {% load my_filters %}
+        <div id="content-body-wrapper">
+            <!-- left side -->
+            <div class="content-body-left">
+            {% for i in 10|times %}
+                {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'left' %}
+                    {% with 'style_picture_img/'|add:i|add:'.jpeg' as img_path %}
+                    {# <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.id}}"> #}
+                    <div class="img-wrapper" data-title="Awesome point" data-year="2022" data-author="Codingcoonie" data-id="{{pic.id}}" data-intro="Hello This is...">
+                        {% if forloop.counter0 < 5%}
+                            <img class="famous-paintings" src="{% static img_path %}" alt="">
+                        {% else %}
+                            <img class="famous-paintings lazy" data-src="{% static img_path %}" alt="">
+                        {% endif %}
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+            
+            <!-- right side -->
+            <div class="content-body-right">
+            {% for i in 10|times %}
+                {% cycle 'left' 'right' as sides silent %}
+                {% if sides == 'right' %}
+                    {% with 'style_picture_img/'|add:i|add:'.jpeg' as img_path %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.id}}">
+                        {% if forloop.counter0 < 6%}
+                            <img class="famous-paintings" src="{% static img_path %}" alt="">
+                        {% else %}
+                            <img class="famous-paintings lazy" data-src="{% static img_path %}" alt="">
+                        {% endif %}
+                    </div>
+                    {% endwith %}
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-background">
+    <div class="modal-window">
+        <div class="modal-popup">
+            <div class="paintings-info">
+                <div id="info-top">
+                    {% for _ in 4|times %}
+                        <h3></h3>
+                    {% endfor %}
+                </div>
+                <div id="info-bottom">
+                    <button id="do-delete">삭제</button>
+                    <button id="do-cancel">취소</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
