@@ -1,6 +1,6 @@
 # project_3team_mijung_sketch_book
 
-# 미정의 스케치북? (unsettled-sketch-book) 🪁
+# 미정의 스케치북 (unsettled-sketch-book) 🪁
 ![미정의 스케치북](로고 이미지 넣을곳)
 
 ## 설명 👄
