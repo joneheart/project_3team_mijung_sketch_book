@@ -65,7 +65,18 @@ const clickModalWindow = (e) => {
     }
 }
 
-const doDelete = (e) => {
+const doDownload = () => {
+    imgDownloadUrl = clickedPaintingElement.currentSrc;
+
+    const link = document.createElement('a');
+    link.href = imgDownloadUrl;
+    link.setAttribute('download', 'image.jpg');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+const doDelete = () => {
     const selectPaintingId = clickedPaintingElement.parentElement.dataset.id;
     const confirmAnswer = confirm("정말 삭제 하시겠습니까?");
     if (confirmAnswer) {
@@ -73,7 +84,7 @@ const doDelete = (e) => {
     }
 }
 
-const doCancel = (e) => {
+const doCancel = () => {
     closeModal(document.querySelector('.modal-window'));
 }
 
@@ -110,6 +121,7 @@ document.querySelector('#img-logout').addEventListener('click', logout);
 document.querySelector('#back-arrow-wrapper > img').addEventListener('click', goToMain);
 
 document.querySelector('.modal-window').addEventListener('click', clickModalWindow);
+document.querySelector('#do-download').addEventListener('click', doDownload);
 document.querySelector('#do-delete').addEventListener('click', doDelete);
 document.querySelector('#do-cancel').addEventListener('click', doCancel);
 
