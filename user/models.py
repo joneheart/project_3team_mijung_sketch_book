@@ -13,7 +13,6 @@ class UserModel(AbstractUser):
         max_length=255,
         unique=True,
     )
-    my_pictures = models.TextField(default='')
 
     #usermodel custom
     USERNAME_FIELD = 'email'
