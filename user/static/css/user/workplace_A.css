@@ -1,0 +1,323 @@
+@font-face {
+    font-family: 'Haram';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Haram.woff') format('woff');
+}
+
+* {
+    font-family: 'Haram';
+    font-weight: bold;
+
+}
+
+/* 그림이 들어갈 박스 */
+#box {
+    width: 412px;
+    height: 915px;
+    margin: 0 auto;
+    position: relative;
+}
+
+@font-face {
+    font-family: 'Haram';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_05@1.0/Haram.woff') format('woff');
+}
+
+* {
+    font-family: 'Haram';
+    font-weight: bold;
+
+}
+
+/* 그림이 들어갈 박스 */
+#box {
+    width: 412px;
+    height: 915px;
+    margin: 0 auto;
+    position: relative;
+
+}
+
+#box::after {
+    content: "";
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://ifh.cc/g/zBS0Ps.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*상단 버튼*/
+#top_btt {
+    padding: 5% 5% 0 5%;
+}
+#back {
+    background: url("https://ifh.cc/g/IyDE5L.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+
+}
+
+#front {
+    background: url("https://ifh.cc/g/8ZFSVW.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    float: right;
+
+}
+
+/*작업판*/
+li {
+    list-style: none;
+
+}
+
+.picture {
+    text-align: center;
+
+}
+
+/*공유-취소 버튼*/
+li {
+    list-style: none;
+    float: left;
+
+}
+
+#share {
+    cursor: pointer;
+    border-radius: 30px;
+    border: 0;
+    height: 45px;
+    width: 100%;
+    font-size: xx-large;
+    color: black;
+    background-color: #ffcb32;
+    margin-left: 80px;
+
+}
+
+#cancel {
+    cursor: pointer;
+    border-radius: 30px;
+    border: 0;
+    height: 45px;
+    width: 100%;
+    font-size: xx-large;
+    color: black;
+    background-color: #ffcb32;
+    margin-left: 80px;
+
+}
+
+/*하단 버튼*/
+#bottom_btt {
+    position: fixed;
+    top: 830px;
+}
+
+#draw {
+    background: url("https://ifh.cc/g/5PEJuG.png") no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    margin-left: 23px;
+
+}
+
+#photo {
+    background: url("https://ifh.cc/g/K0VT7E.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    margin: 0 50px auto;
+}
+
+#camera {
+    background: url("https://ifh.cc/g/L7Lkfk.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+
+}
+
+
+
+
+#box::after {
+    content: "";
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://ifh.cc/g/zBS0Ps.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/*상단 버튼*/
+#top_btt {
+    padding: 5% 5% 0 5%;
+}
+#back {
+    background: url("https://ifh.cc/g/IyDE5L.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+
+}
+
+#front {
+    background: url("https://ifh.cc/g/8ZFSVW.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    float: right;
+
+}
+
+/*작업판*/
+li {
+    list-style: none;
+
+}
+
+.picture {
+    text-align: center;
+
+}
+
+input:focus{
+    outline: none;
+
+}
+
+input::placeholder{
+    color: #2f2f2f;
+}
+
+input {
+    border-radius: 30px;
+    padding: 0 15px;
+    border: 2px rgb(214,211,211) solid;
+    height: 45px;
+    width: 50%;
+    font-size: 30px;
+    margin: 7px;
+    background-color : rgb(176,173,170);
+    text-align: center;
+
+}
+
+/*submit 버튼*/
+.button {
+    background: rgb(214,211,211);
+    height: 40px;
+    width: 100px;
+    margin: 0 auto;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
+
+.text {
+    color: #2f2f2f;
+    font-size: xx-large;
+    font-weight: bold;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 10px;
+    width: 0;
+    right: 0;
+    top: 50%;
+    left: 50%;
+    border-radius: 200px;
+    transform: translateY(2660%) translateX(-50%);
+}
+
+svg {
+    width: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(800%) translateX(-50%);
+    left: 50%;
+    right: 0;
+}
+
+.check {
+    fill: none;
+    stroke: #3b3b3b;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/*하단 버튼*/
+#bottom_btt {
+    position: fixed;
+    top: 830px;
+}
+
+#draw {
+    background: url("https://ifh.cc/g/5PEJuG.png") no-repeat;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    margin-left: 23px;
+
+}
+
+#photo {
+    background: url("https://ifh.cc/g/K0VT7E.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+    margin: 0 50px auto;
+}
+
+#camera {
+    background: url("https://ifh.cc/g/L7Lkfk.png") no-repeat;
+    background-size: contain;
+    width: 80px;
+    height: 100px;
+    cursor: pointer;
+    border: 0;
+
+}
