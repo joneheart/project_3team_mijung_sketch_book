@@ -193,7 +193,7 @@
 }
 
 .share-button {
-    width: 50px;
+    width: 44px;
     cursor: pointer;
 }
 
@@ -204,4 +204,14 @@
 form {
     width: 0px;
     height: 0px;
+}
+
+.speech-bubble {
+    position:absolute;
+    top: 327px;
+    left:230px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 15px;
+    padding: 8px;
 }

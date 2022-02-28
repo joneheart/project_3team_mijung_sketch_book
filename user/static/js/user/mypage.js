@@ -99,7 +99,25 @@ const clickShareButton = (e) => {
         console.log(sharePlatform)
     } else {
         // 클립보드
-        console.log(sharePlatform)
+        const paintId = clickedPaintingElement.parentElement.dataset.id;
+        const baseUrl = window.location.origin;
+        const shareUrl = `${baseUrl}/detail/${paintId}`;
+        navigator.clipboard.writeText(shareUrl).then(function() {
+            // console.log('copied');
+            // show
+            document.querySelector('.speech-bubble').classList.remove('hide');
+            
+            // position
+            const bubble = document.querySelector('.speech-bubble');
+            bubble.style.top = `${e.target.offsetTop - 12}px`;
+            
+            // hide
+            setTimeout(() => {
+                document.querySelector('.speech-bubble').classList.add('hide');
+            }, 1000);
+        }, function() {
+            // console.log('failed');
+        });
     }
 }
 
@@ -173,10 +191,7 @@ window.onload = function() {
     document.querySelector('#img-logout').style.transition = 'opacity 1.5s';
 
     const shareButtons = document.querySelectorAll('.share-button');
-    console.log(shareButtons);
     for (let i=0; i<shareButtons.length; i++) {
         shareButtons[i].addEventListener('click', clickShareButton);
     }
 }
-
-// https://www.flaticon.com/free-icon/twitter_145812?term=twitter&page=1&position=4&page=1&position=4&related_id=145812&origin=search
