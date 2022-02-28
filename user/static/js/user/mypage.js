@@ -66,14 +66,22 @@ const clickModalWindow = (e) => {
 }
 
 const doDownload = () => {
-    imgDownloadUrl = clickedPaintingElement.currentSrc;
-
-    const link = document.createElement('a');
-    link.href = imgDownloadUrl;
-    link.setAttribute('download', 'image.jpg');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const imgDownloadUrl = `${clickedPaintingElement.currentSrc.split('jpeg')[0]}jpeg`;
+    const imgTitle = imgDownloadUrl.split('/').pop();
+    
+    axios({
+        url: imgDownloadUrl,
+        method: 'GET',
+        responseType: 'blob',
+    }).then((response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', imgTitle);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    })
 }
 
 const doDelete = () => {

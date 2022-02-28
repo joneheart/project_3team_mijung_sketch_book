@@ -32,12 +32,13 @@
         <div id="content-body-wrapper">
             <!-- left side -->
             <div class="content-body-left">
-            {% for i in 10|times %}
+            {#{% for i in 10|times %}#}
+            {% for pic in pictures %}
                 {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'left' %}
-                    {% with 'style_picture_img/'|add:i|add:'.jpeg' as img_path %}
-                    {# <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.id}}"> #}
-                    <div class="img-wrapper" data-title="Awesome point" data-year="2022" data-author="Codingcoonie" data-id="1" data-intro="Hello This is...">
+                    {% with 'style_picture_img/'|add:pic.enl_title|add:'.jpeg' as img_path %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.intro}}">
+                    <!-- <div class="img-wrapper" data-title="Awesome point" data-year="2022" data-author="Codingcoonie" data-id="1" data-intro="Hello This is..."> -->
                         {% if forloop.counter0 < 5%}
                             <img class="famous-paintings" src="{% static img_path %}" alt="">
                         {% else %}
@@ -51,11 +52,12 @@
             
             <!-- right side -->
             <div class="content-body-right">
-            {% for i in 10|times %}
+            {#{% for i in 10|times %}#}
+            {% for pic in pictures %}
                 {% cycle 'left' 'right' as sides silent %}
                 {% if sides == 'right' %}
-                    {% with 'style_picture_img/'|add:i|add:'.jpeg' as img_path %}
-                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.id}}">
+                    {% with 'style_picture_img/'|add:pic.enl_title|add:'.jpeg' as img_path %}
+                    <div class="img-wrapper" data-title="{{pic.title}}" data-year="{{pic.year}}" data-author="{{pic.author}}" data-id="{{pic.id}}" data-intro="{{pic.intro}}">
                         {% if forloop.counter0 < 6%}
                             <img class="famous-paintings" src="{% static img_path %}" alt="">
                         {% else %}
@@ -91,5 +93,6 @@
 {% endblock %}
 
 {% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script src="{% static 'js/user/mypage.js' %}"></script>
 {% endblock %}
