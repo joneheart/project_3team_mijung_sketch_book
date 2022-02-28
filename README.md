@@ -11,7 +11,7 @@
 ___
 
 ## 기간 🗓
-2022-01-26 ~ 2022-02-09 (2주)
+2022-02-22 ~ 2022-03-03 (1주)
 
 ## 팀 구성 🤼‍♂️
 * 박재영: 백엔드 [<img src="https://img.shields.io/badge/Github-181717?style=flat-square&logo=Github&logoColor=white"/></a>](https://github.com/devjcode)
@@ -28,7 +28,7 @@ python==3.8 <p>
 django==3.2
 
 ## 기획 ✏️
-<img width="1024" alt="설날에뭐하지_기획 copy" src="https://user-images.githubusercontent.com/18342765/153380408-c7013a3d-8556-4c64-a581-7984ea4aca4c.png">
+<img width="1024" alt="미정의 스케치북_기획 copy" src="이미지">
 
 ## 기능 📸
 * [로그인] 일반 로그인, 소셜 로그인(네이버, 카카오, 페이스북)
