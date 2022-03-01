@@ -64,7 +64,7 @@ SITE_ID = 1
 # 로그인 후 redirect route
 LOGIN_REDIRECT_URL = '/main'
 # 로그아웃 후 redirect route
-ACCOUNT_LOGOUT_REDIRECT_URL = '/login'
+ACCOUNT_LOGOUT_REDIRECT_URL = '/'
 # 로그아웃 버튼 클릭시 자동 로그아웃
 ACCOUNT_LOGOUT_ON_GET = True
 
