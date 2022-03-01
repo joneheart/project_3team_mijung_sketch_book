@@ -5,10 +5,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 import requests
 import boto3
+import time
 
 # Create your views here.
 
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def index(request):
     if request.method == 'GET':
         pictures = BasePicture.objects.all()
@@ -24,55 +25,48 @@ def index(request):
         return render(request, 'main/index.html', {'pictures' : picture_list})
 
 
-# @login_required(login_url='/login')
+def paint(request, id):
+    # index에서 넘어온 id 값 다시 전달
+    print(id)
+    return render(request, 'main/paint.html', {'id': id})
+
+# @login_required(login_url='/')
 @csrf_exempt
 # 선택한 파일 이름, 업로드 한 파일 받기
-def paint(request):
+def painting(request):
     if request.method == 'POST' and request.FILES['file']:
 
-        # 업로드 한 파일 받기
-        upload_file = request.FILES['file']
 
-        # base picture id 값
-        id_receive = request.POST['id']
+        upload_file = request.FILES['file'] # 업로드 한 파일
+        id_receive = request.POST['id'] # base picture id 값
+        title = request.POST['title'] # 작품 설명
+        user_id = request.user.id # 유저 id
+        base_picture = BasePicture.objects.get(id=id_receive) # 선택한 유화 객체
 
-        # 작품 설명
-        title = request.POST['title']
 
-        # 유저 id
-        # user_id = request.user.id
-
-        print(upload_file, id_receive, title)
-
-        base_picture = BasePicture.objects.get(id=id_receive)
-        print(base_picture)
+        # 유저 id와 title로 중복되지 않는 파일명 생성 및 ai 서버에 전달
+        file_name = f"{user_id}_{title}_{int(time.time())}"
 
 
         # AI 서버와 통신
-        # 결과 이미지 파일 받기 result_file
         URL = "http://localhost:8000/api/v1/nsts/"
-        payload = {'key': 'titleis',
-                   'picture': 'The_Kiss'}
+        payload = {'key': file_name,
+                   'picture': base_picture.enl_title}
         file = [('img', upload_file)]
 
         res = requests.post(URL, data=payload, files=file)
-        print(res)
+        print(res.json()) # 사진 이름 받고
 
 
-        # 결과 파일 업로드 picture에 결과 파일 넣어주기~!
-        # MyPaintingPicture.objects.create(title=title, base_picture_id=base_picture,
-        #                                  picture=upload_file)
+        # 결과 파일 업로드 picture에 결과 파일 넣어주기
+        MyPaintingPicture.objects.create(title=title,
+                                         base_picture_id=base_picture,
+                                         painter=user_id,
+                                         picture=file_name)
 
         return render(request, 'main/result.html')
 
-    # else:
-    #     # index에서 넘어온 id 값 다시 전달
-    #     print(id)
-    #     print(request.user.id)
-    #     return render(request, 'main/paint.html', {'id' : id})
 
-
-@login_required(login_url='/login')
+@login_required(login_url='/')
 def result(request):
-
-    pass
+    return render(request, 'main/result.html')
