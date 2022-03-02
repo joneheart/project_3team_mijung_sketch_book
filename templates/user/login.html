@@ -9,6 +9,11 @@
     {% endblock %}
 </head>
 <body>
+
+    <div id="load">
+        <img src="https://ifh.cc/g/yzkyca.gif" alt="loading">
+    </div>
+
     <div id="box">
         <img id="logo" src="https://ifh.cc/g/VQQqQB.png">
 
@@ -42,3 +47,8 @@
     </div>
 </body>
 </html>
+
+{% block js %}.
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script defer src="{% static 'css/js/login.js' %}"></script>
+{% endblock %}
