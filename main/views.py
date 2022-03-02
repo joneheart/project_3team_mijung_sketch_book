@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import BasePicture, MyPaintingPicture
+from user.models import UserModel
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -70,3 +71,10 @@ def painting(request):
 @login_required(login_url='/')
 def result(request):
     return render(request, 'main/result.html')
+
+@login_required(login_url='/')
+def mypage(request):
+    u_id = request.user.id
+    u = UserModel.objects.get(id=u_id)
+    pictures = u.painting.all()
+    return render(request, 'user/mypage.html', {'pictures': pictures})
