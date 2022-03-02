@@ -18,7 +18,7 @@ def sign_up(request):
         exist_user = get_user_model().objects.filter(email=email)
         if exist_user:
             # pass
-            return redirect('/login', {'error':'사용자가 이미 존재합니다.'})
+            return redirect('/', {'error':'사용자가 이미 존재합니다.'})
         else:
             UserModel.objects.create_user(email=email, username=username, password=password)
             return redirect('/')
