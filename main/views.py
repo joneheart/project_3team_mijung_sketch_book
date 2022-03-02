@@ -56,12 +56,17 @@ def painting(request):
 
 
         # AI 서버와 통신
-        URL = "http://localhost:8000/api/v1/nsts/"
+        # URL = "http://localhost:8000/api/v1/nsts/" # local test
+        URL = "http://mijung-sketchbook-ai-dev2.ap-northeast-2.elasticbeanstalk.com/api/v1/nsts/"
         payload = {'key': file_name,
                    'picture': base_picture.enl_title}
         file = [('img', upload_file)]
 
-        res = requests.post(URL, data=payload, files=file)
+        sess = requests.Session()
+        adapter = requests.adapters.HTTPAdapter(pool_connections=100, pool_maxsize=100)
+        sess.mount('http://', adapter)
+        res = sess.post(URL, data=payload, files=file)
+        # res = requests.post(URL, data=payload, files=file) # local test okay
         print(res.json()) # 사진 이름 받고
 
         today_year = datetime.date.today().year
