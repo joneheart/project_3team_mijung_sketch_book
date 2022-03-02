@@ -67,7 +67,7 @@ const clickModalWindow = (e) => {
 }
 
 const doDownload = () => {
-    const imgDownloadUrl = `${clickedPaintingElement.currentSrc.split('jpeg')[0]}jpeg`;
+    const imgDownloadUrl = `${clickedPaintingElement.currentSrc.split('png')[0]}png`;
     const imgTitle = imgDownloadUrl.split('/').pop();
     
     axios({

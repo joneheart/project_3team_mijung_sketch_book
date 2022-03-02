@@ -67,12 +67,36 @@ li {
 
 }
 
-/*액자-그림은 HTML*/
+/*액자-그림*/
 .frame {
     text-align: center;
     position: relative;
 }
 
+#picture {
+    background-color: #2f2f2f;
+    opacity: 0;
+    width: 220px;
+    height: 320px;
+    position: absolute;
+    top: 40px;
+    left: 70px;
+    text-align: center;
+    color: white;
+    font-size: x-large;
+    border: none;
+    border-radius: 0;
+
+}
+
+#preview {
+    width: 250px;
+    height: 320px;
+    position: absolute;
+    top: 47px;
+    left: 77px;
+
+}
 
 input:focus{
     outline: none;
