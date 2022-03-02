@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'user',
     'main',
+    'django_social_share',
     'storages',
 
 
