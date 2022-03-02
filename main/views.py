@@ -51,6 +51,10 @@ def painting(request):
         file_name = f"{user_id}_{title}_{int(time.time())}"
 
 
+        # 유저 모델 인스턴스 불러오기
+        user_instance = UserModel.objects.get(id=user_id)
+
+
         # AI 서버와 통신
         URL = "http://localhost:8000/api/v1/nsts/"
         payload = {'key': file_name,
@@ -67,11 +71,11 @@ def painting(request):
                                          year=today_year,
                                          content=content,
                                          base_picture_id=base_picture,
-                                         painter=user_id,
+                                         painter=user_instance,
                                          picture=file_name)
 
         print(obj)
-        return render(request, 'main/result.html', {'result_object' : obj})
+        return render(request, 'main/workplace_A.html', {'result_obj' : obj})
 
 
 

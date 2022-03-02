@@ -304,33 +304,3 @@ svg {
     top: 830px;
 }
 
-#draw {
-    background: url("https://ifh.cc/g/5PEJuG.png") no-repeat;
-    background-size: contain;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-    margin-left: 23px;
-
-}
-
-#photo {
-    background: url("https://ifh.cc/g/K0VT7E.png") no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-    margin: 0 50px auto;
-}
-
-#camera {
-    background: url("https://ifh.cc/g/L7Lkfk.png") no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-
-}
