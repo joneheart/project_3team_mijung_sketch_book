@@ -129,7 +129,26 @@ const doDelete = () => {
     const selectPaintingId = clickedPaintingElement.parentElement.dataset.id;
     const confirmAnswer = confirm("정말 삭제 하시겠습니까?");
     if (confirmAnswer) {
-        location.href = `/mypage/${selectPaintingId}`;
+        const form = document.createElement("form");
+        form.setAttribute("charset", "UTF-8");
+        form.setAttribute("method", "Post");  //Post 방식
+        form.setAttribute("action", "/delete/"); //요청 보낼 주소
+
+        let hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "id");
+        hiddenField.setAttribute("value", selectPaintingId);
+        form.appendChild(hiddenField);
+
+        const csrfToken =document.querySelector('#info-bottom').children[2];
+        hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", csrfToken.getAttribute('name'));
+        hiddenField.setAttribute("value", csrfToken.getAttribute('value'));
+        form.appendChild(hiddenField);
+
+        document.body.appendChild(form);
+        form.submit();
     }
 }
 
