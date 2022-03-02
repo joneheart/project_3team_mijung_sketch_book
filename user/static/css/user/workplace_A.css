@@ -86,41 +86,54 @@ li {
 
 }
 
-.picture {
+.frame {
     text-align: center;
+    position: relative;
+}
+
+/*제목-내용, 공유-취소 버튼*/
+li {
+    list-style: none;
 
 }
 
-/*공유-취소 버튼*/
-li {
-    list-style: none;
-    float: left;
+#input_T {
+    background-color: rgb(176,173,170);
+    border: gray 1px solid;
+    border-bottom-color: #444444;
+    width: 250px;
+    font-size: xx-large;
+    margin: auto;
+}
+
+#input_C {
+    background-color: rgb(176,173,170);
+    border: gray 1px solid;
+    border-top-color: #444444;
+    width: 250px;
+    height: 100px;
+    font-size: x-large;
+    margin: auto;
 
 }
 
 #share {
     cursor: pointer;
-    border-radius: 30px;
-    border: 0;
+    border-radius: 20px;
+    width: 80px;
     height: 45px;
-    width: 100%;
     font-size: xx-large;
-    color: black;
-    background-color: #ffcb32;
-    margin-left: 80px;
+    background-color: rgb(176,173,170);
 
 }
 
 #cancel {
     cursor: pointer;
-    border-radius: 30px;
-    border: 0;
+    border-radius: 20px;
+    width: 80px;
     height: 45px;
-    width: 100%;
     font-size: xx-large;
-    color: black;
-    background-color: #ffcb32;
-    margin-left: 80px;
+    background-color: rgb(176,173,170);
 
 }
 
