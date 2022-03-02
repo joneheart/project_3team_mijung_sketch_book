@@ -39,9 +39,9 @@ basicTimeline
     .add({
         targets: ".progress-bar",
         width: 80,
-        height: 80,
+        height: 73,
         delay: 500,
-        top: -1405,
+        top: -1550,
         duration: 750,
         borderRadius: 80,
         backgroundColor: "rgb(214,211,211)"
