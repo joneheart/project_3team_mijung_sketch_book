@@ -88,3 +88,5 @@ def delete_painting(request):
         id = request.POST['id']
 
         MyPaintingPicture.objects.get(id=id).delete()
+
+        return render(request, 'user/mypage.html')
