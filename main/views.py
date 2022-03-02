@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import BasePicture, MyPaintingPicture
+from user.models import UserModel
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -28,7 +29,7 @@ def index(request):
 def paint(request, id):
     # index에서 넘어온 id 값 다시 전달
     print(id)
-    return render(request, 'main/paint.html', {'id': id})
+    return render(request, 'workplace_B', {'id': id})
 
 # @login_required(login_url='/')
 @csrf_exempt
@@ -70,3 +71,10 @@ def painting(request):
 @login_required(login_url='/')
 def result(request):
     return render(request, 'main/result.html')
+
+@login_required(login_url='/')
+def mypage(request):
+    u_id = request.user.id
+    u = UserModel.objects.get(id=u_id)
+    pictures = u.painting.all()
+    return render(request, 'user/mypage.html', {'pictures': pictures})
