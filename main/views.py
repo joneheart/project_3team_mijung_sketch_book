@@ -81,3 +81,12 @@ def mypage(request):
     u = UserModel.objects.get(id=u_id)
     pictures = u.painting.all()
     return render(request, 'user/mypage.html', {'pictures': pictures})
+
+
+def delete_painting(request):
+    if request.method == 'POST':
+        id = request.POST['id']
+
+        MyPaintingPicture.objects.get(id=id).delete()
+
+        return render(request, 'user/mypage.html')
