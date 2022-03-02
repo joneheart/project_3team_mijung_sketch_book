@@ -90,18 +90,19 @@ const doShare = () => {
 }
 
 const clickShareButton = (e) => {
-    sharePlatform = e.target.parentElement.id;
+    const sharePlatform = e.target.parentElement.id;
+    const paintId = clickedPaintingElement.parentElement.dataset.id;
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/detail/${paintId}`;
+    
     if (sharePlatform == 'twitter') {
         // 트위터
-        console.log(sharePlatform)
-    } else if (sharePlatform == 'Facebook') {
+        window.open(`https://twitter.com/intent/tweet?text=${shareUrl}`, '_blank');
+    } else if (sharePlatform == 'facebook') {
         // 페이스북
-        console.log(sharePlatform)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
     } else {
         // 클립보드
-        const paintId = clickedPaintingElement.parentElement.dataset.id;
-        const baseUrl = window.location.origin;
-        const shareUrl = `${baseUrl}/detail/${paintId}`;
         navigator.clipboard.writeText(shareUrl).then(function() {
             // console.log('copied');
             // show
