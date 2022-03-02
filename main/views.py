@@ -29,7 +29,7 @@ def index(request):
 def paint(request, id):
     # index에서 넘어온 id 값 다시 전달
     print(id)
-    return render(request, 'main/paint.html', {'id': id})
+    return render(request, 'workplace_B', {'id': id})
 
 # @login_required(login_url='/')
 @csrf_exempt
