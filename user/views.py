@@ -48,4 +48,4 @@ def login(request):
 @login_required
 def logout(request):
     auth.logout(request)  # 인증 되어있는 정보를 없애기
-    return redirect("/login")
+    return redirect("/")
