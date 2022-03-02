@@ -75,6 +75,55 @@ function readImage(input) {
     }
 }
 // 이벤트 리스너
-document.getElementById('picture').addEventListener('change', (e) => {
+document.querySelector('.picture').addEventListener('change', (e) => {
     readImage(e.target);
 })
+
+/* 공유!!!!! */
+const doShare = () => {
+    const infoShareElement = document.querySelector('.info-share');
+    infoShareElement.classList.toggle('hide');
+}
+
+const clickShareButton = (e) => {
+    console.log(document.querySelector('#do-share').dataset.id);
+    const sharePlatform = e.target.parentElement.id;
+    const paintId = document.querySelector('#do-share').dataset.id;
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/detail/${paintId}`;
+
+    if (sharePlatform == 'twitter') {
+        // 트위터
+        // window.open(`https://twitter.com/intent/tweet?text=${shareUrl}`);
+        location.href = `https://twitter.com/intent/tweet?text=${shareUrl}`;
+    } else if (sharePlatform == 'facebook') {
+        // 페이스북
+        // window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`);
+        location.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+    } else {
+        // 클립보드
+        navigator.clipboard.writeText(shareUrl).then(function() {
+            // console.log('copied');
+            // show
+            document.querySelector('.speech-bubble').classList.remove('hide');
+
+            // position
+            const bubble = document.querySelector('.speech-bubble');
+            bubble.style.top = `${e.target.offsetTop + 35}px`;
+
+            // hide
+            setTimeout(() => {
+                document.querySelector('.speech-bubble').classList.add('hide');
+            }, 1000);
+        }, function() {
+            // console.log('failed');
+        });
+    }
+}
+
+document.querySelector('#do-share').addEventListener('click', doShare);
+
+const shareButtons = document.querySelectorAll('.share-button');
+    for (let i=0; i<shareButtons.length; i++) {
+        shareButtons[i].addEventListener('click', clickShareButton);
+    }
