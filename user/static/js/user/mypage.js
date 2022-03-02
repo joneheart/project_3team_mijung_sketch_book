@@ -70,19 +70,12 @@ const doDownload = () => {
     const imgDownloadUrl = `${clickedPaintingElement.currentSrc.split('png')[0]}png`;
     const imgTitle = imgDownloadUrl.split('/').pop();
     
-    axios({
-        url: imgDownloadUrl,
-        method: 'GET',
-        responseType: 'blob',
-    }).then((response) => {
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', imgTitle);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    })
+    const link = document.createElement('a');
+    link.href = imgDownloadUrl;
+    link.setAttribute('download', imgTitle);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 const doShare = () => {
