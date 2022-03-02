@@ -55,6 +55,7 @@ const closeModal = (modalWindow) => {
     const imgElementInModal = modalWindow.children[0].children[1];
     document.querySelector('.modal-background').classList.toggle("show");
     document.querySelector('.modal-popup').removeChild(imgElementInModal);
+    document.querySelector('.info-share').classList.add('hide');;
 }
 
 const clickModalWindow = (e) => {
@@ -90,18 +91,21 @@ const doShare = () => {
 }
 
 const clickShareButton = (e) => {
-    sharePlatform = e.target.parentElement.id;
+    const sharePlatform = e.target.parentElement.id;
+    const paintId = clickedPaintingElement.parentElement.dataset.id;
+    const baseUrl = window.location.origin;
+    const shareUrl = `${baseUrl}/detail/${paintId}`;
+    
     if (sharePlatform == 'twitter') {
         // 트위터
-        console.log(sharePlatform)
-    } else if (sharePlatform == 'Facebook') {
+        // window.open(`https://twitter.com/intent/tweet?text=${shareUrl}`);
+        location.href = `https://twitter.com/intent/tweet?text=${shareUrl}`;
+    } else if (sharePlatform == 'facebook') {
         // 페이스북
-        console.log(sharePlatform)
+        // window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`);
+        location.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
     } else {
         // 클립보드
-        const paintId = clickedPaintingElement.parentElement.dataset.id;
-        const baseUrl = window.location.origin;
-        const shareUrl = `${baseUrl}/detail/${paintId}`;
         navigator.clipboard.writeText(shareUrl).then(function() {
             // console.log('copied');
             // show
