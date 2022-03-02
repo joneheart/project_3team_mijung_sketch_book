@@ -54,6 +54,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.naver',
     'allauth.socialaccount.providers.kakao',
+
+    # 소셜 공유를 위한 django
+    'django_social_share',
 ]
 
 SITE_ID = 1

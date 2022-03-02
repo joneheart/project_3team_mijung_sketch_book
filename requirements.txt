@@ -8,6 +8,7 @@ cryptography==36.0.1
 defusedxml==0.7.1
 Django==3.2
 django-allauth==0.48.0
+django-social-share==2.2.1
 django-storages==1.12.3
 idna==3.3
 jmespath==0.10.0

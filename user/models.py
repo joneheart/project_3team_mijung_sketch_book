@@ -16,4 +16,4 @@ class UserModel(AbstractUser):
 
     #usermodel custom
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
