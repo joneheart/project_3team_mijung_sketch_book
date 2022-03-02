@@ -1,51 +1,50 @@
 {% extends 'base.html' %}
 
 {% block title %}
-나의 작업실_전
+    나의 작업실_전
 {% endblock %}
 
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/user/workplace_B.css' %}">
+    <link rel="stylesheet" href="{% static 'css/user/workplace_B.css' %}">
 {% endblock %}
 
 {% block content %}
     <div id="box">
         <div id="top_btt">
-            <button type="button" onclick="location.href='#'" id="back"></button>
-            <button type="button" onclick="location.href='#'" id="front"></button>
+            <button type="button" onclick="location.href='/main'" id="back"></button>
+            <button type="button" onclick="location.href='/mypage'" id="front"></button>
         </div>
         <div class="picture">
-            <img src="https://ifh.cc/g/y2H5Lm.jpg" width="250" height="320"
-                 style="position: absolute; top: 170px; left: 80px;">
-        </div>
-        <div class="frame">
-            <img src="https://ifh.cc/g/yT76lZ.png">
-            <li><input type="text" name="title" placeholder="제목을 적어주세요"></li>
-            <li><input type="text" name="contents" placeholder="그림에 대한 설명을 적어주세요" style="height: 100px"></li>
-            <div class="button">
-                <div class="text">Submit</div>
-                <div class="progress-bar"></div>
-                <svg x="0px" y="0px"
-                     viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
-                    <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
-                </svg>
+            <form method="post" action="/painting" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="frame">
+                    <img src="https://ifh.cc/g/yT76lZ.png">
+                    <img id="preview">
+                    <input id="picture" type="file" name="file">
+                    <li><input type="text" name="title" placeholder="wa"></li>
+                    <li><input type="text" name="content" placeholder="sd" style="height: 100px"></li>
+                    <button class="button" type="submit">
+                        <a href="#" id="a_tag" onclick="document.getElementById('form-area').submit();"></a>
+                        <div class="text">Submit</div>
+                        <div class="progress-bar"></div>
+                        <svg x="0px" y="0px"
+                             viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
+                            <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+                        </svg>
+                        <input type="hidden" value="{{ id }}" name="id">
 
-            </div>
 
-        </div>
-        <div id="bottom_btt">
-            <button type="button" onclick="location.href='#'" id="draw"></button>
-            <button type="button" onclick="location.href='#'" id="photo"></button>
-            <button type="button" onclick="location.href='#'" id="camera"></button>
-
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 {% endblock %}
 
 {% block js %}
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-<script src="{% static 'css/js/workplace.js' %}"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="{% static 'css/js/workplace.js' %}"></script>
 {% endblock %}
