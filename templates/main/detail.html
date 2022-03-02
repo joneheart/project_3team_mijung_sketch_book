@@ -21,13 +21,13 @@
     </div>
     <div id="content-body">
         <div id="content-body-wrapper">
-            {% with 'style_picture_img/'|add:picture.enl_title|add:'.jpeg' as img_path %}
-                <img id="my-painting" src="{% static img_path %}" alt="">
+            {% with 'https://mytest0316.s3.ap-northeast-2.amazonaws.com/'|add:my_pics.picture|add:'.png' as img_path %}
+                <img id="my-painting" src="{{ img_path }}" alt="">
             {% endwith %}
-            <h3>{{ picture.title }}</h3>
-            <h3>{{ picture.year }}</h3>
-            <h3>{{ picture.author }}</h3>
-            <h3>{{ picture.intro }}</h3>
+            <h3>{{ my_pics.title }}</h3>
+            <h3>{{ my_pics.year }}</h3>
+            <h3>{{ my_pics.painter.username }}</h3>
+            <h3>{{ my_pics.content }}</h3>
             <button class="w-btn-outline w-btn-indigo-outline" type="button" onclick="location.href='/'">
                 야, 너도 만들 수 있어~! 👩‍🎨🎨
             </button>
