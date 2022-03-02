@@ -21,4 +21,5 @@ urlpatterns = [
     path('paint/<int:id>/', views.paint, name='paint'), # GET - paint page
     path('painting', views.painting),  # POST - 제출 -> result로 이동
     path('mypage/', views.mypage, name='mypage'),
+    path('delete/', views.delete_painting)
 ]
