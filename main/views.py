@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 import requests
 import boto3
 import time
+import datetime
 
 # Create your views here.
 
@@ -29,7 +30,7 @@ def index(request):
 def paint(request, id):
     # index에서 넘어온 id 값 다시 전달
     print(id)
-    return render(request, 'workplace_B', {'id': id})
+    return render(request, 'main/paint.html', {'id': id})
 
 # @login_required(login_url='/')
 @csrf_exempt
@@ -40,7 +41,8 @@ def painting(request):
 
         upload_file = request.FILES['file'] # 업로드 한 파일
         id_receive = request.POST['id'] # base picture id 값
-        title = request.POST['title'] # 작품 설명
+        title = request.POST['title'] # 작품 제목
+        content = request.POST['content'] # 작품 설명
         user_id = request.user.id # 유저 id
         base_picture = BasePicture.objects.get(id=id_receive) # 선택한 유화 객체
 
@@ -58,19 +60,20 @@ def painting(request):
         res = requests.post(URL, data=payload, files=file)
         print(res.json()) # 사진 이름 받고
 
+        today_year = datetime.date.today().year
 
         # 결과 파일 업로드 picture에 결과 파일 넣어주기
-        MyPaintingPicture.objects.create(title=title,
+        obj = MyPaintingPicture.objects.create(title=title,
+                                         year=today_year,
+                                         content=content,
                                          base_picture_id=base_picture,
                                          painter=user_id,
                                          picture=file_name)
 
-        return render(request, 'main/result.html')
+        print(obj)
+        return render(request, 'main/result.html', {'result_object' : obj})
 
 
-@login_required(login_url='/')
-def result(request):
-    return render(request, 'main/result.html')
 
 @login_required(login_url='/')
 def mypage(request):
