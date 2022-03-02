@@ -55,6 +55,7 @@ const closeModal = (modalWindow) => {
     const imgElementInModal = modalWindow.children[0].children[1];
     document.querySelector('.modal-background').classList.toggle("show");
     document.querySelector('.modal-popup').removeChild(imgElementInModal);
+    document.querySelector('.info-share').classList.add('hide');;
 }
 
 const clickModalWindow = (e) => {
@@ -97,10 +98,12 @@ const clickShareButton = (e) => {
     
     if (sharePlatform == 'twitter') {
         // 트위터
-        window.open(`https://twitter.com/intent/tweet?text=${shareUrl}`, '_blank');
+        // window.open(`https://twitter.com/intent/tweet?text=${shareUrl}`);
+        location.href = `https://twitter.com/intent/tweet?text=${shareUrl}`;
     } else if (sharePlatform == 'facebook') {
         // 페이스북
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, '_blank');
+        // window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`);
+        location.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
     } else {
         // 클립보드
         navigator.clipboard.writeText(shareUrl).then(function() {
