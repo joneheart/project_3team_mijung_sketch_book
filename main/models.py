@@ -22,7 +22,8 @@ class MyPaintingPicture(models.Model):
     # 역참조 할 필요가 있어 related_name 지정
     painter = models.ForeignKey('user.UserModel', on_delete=models.CASCADE, related_name='painting')
     title = models.CharField(max_length=50)
-    picture = models.FileField(upload_to='media/', default='')
+    # picture = models.FileField(upload_to='media/', default='') #-> AI서버에서 파일 업로드해줘서 필요없어짐
+    picture = models.CharField(max_length=50) # 대신 파일명 받음~!
 
 
 
