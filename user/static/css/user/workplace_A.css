@@ -117,7 +117,7 @@ li {
 
 }
 
-#share {
+#do-share {
     cursor: pointer;
     border-radius: 20px;
     width: 80px;
@@ -136,46 +136,6 @@ li {
     background-color: rgb(176,173,170);
 
 }
-
-/*하단 버튼*/
-#bottom_btt {
-    position: fixed;
-    top: 830px;
-}
-
-#draw {
-    background: url("https://ifh.cc/g/5PEJuG.png") no-repeat;
-    background-size: contain;
-    width: 100px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-    margin-left: 23px;
-
-}
-
-#photo {
-    background: url("https://ifh.cc/g/K0VT7E.png") no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-    margin: 0 50px auto;
-}
-
-#camera {
-    background: url("https://ifh.cc/g/L7Lkfk.png") no-repeat;
-    background-size: contain;
-    width: 80px;
-    height: 100px;
-    cursor: pointer;
-    border: 0;
-
-}
-
-
-
 
 #box::after {
     content: "";
@@ -253,54 +213,61 @@ input {
 
 }
 
-/*submit 버튼*/
-.button {
-    background: rgb(214,211,211);
-    height: 40px;
-    width: 100px;
-    margin: 0 auto;
+.info-share {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.share-button {
+    width: 44px;
     cursor: pointer;
-    border-radius: 30px;
-
 }
 
-.text {
-    color: #2f2f2f;
-    font-size: xx-large;
-    font-weight: bold;
+.hide {
+    display: none;
 }
 
-.progress-bar {
-    position: absolute;
-    height: 10px;
-    width: 0;
-    right: 0;
-    top: 50%;
-    left: 50%;
-    border-radius: 200px;
-    transform: translateY(2660%) translateX(-50%);
+form {
+    width: 0px;
+    height: 0px;
 }
 
-svg {
-    width: 30px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(800%) translateX(-50%);
-    left: 50%;
-    right: 0;
+.speech-bubble {
+    position:absolute;
+    top: 327px;
+    left: 324px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 15px;
+    padding: 8px;
 }
 
-.check {
-    fill: none;
-    stroke: #3b3b3b;
-    stroke-width: 3;
-    stroke-linecap: round;
-    stroke-linejoin: round;
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    font-size: 16px;
 }
 
-/*하단 버튼*/
-#bottom_btt {
-    position: fixed;
-    top: 830px;
+.w-btn-khaki {
+    background-color: #767725;
+    color: white;
 }
 
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
+}
