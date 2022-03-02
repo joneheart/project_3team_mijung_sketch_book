@@ -95,3 +95,7 @@ def delete_painting(request):
 
         return redirect('mypage')
 
+
+def detail(request, id):
+    picture = MyPaintingPicture.objects.get(id=id)
+    return render(request, 'main/detail.html', {'my_pics': picture})
