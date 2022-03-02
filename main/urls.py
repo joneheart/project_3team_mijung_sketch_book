@@ -19,7 +19,6 @@ from . import views
 urlpatterns = [
     path('main', views.index, name='index'), # GET - main page
     path('paint/<int:id>/', views.paint, name='paint'), # GET - paint page
-    path('painting', views.painting),  # POST - 제출
-    path('result', views.result, name='result'), # GET - result page
+    path('painting', views.painting),  # POST - 제출 -> result로 이동
     path('mypage/', views.mypage, name='mypage'),
 ]
