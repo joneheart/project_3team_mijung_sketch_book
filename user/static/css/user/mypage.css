@@ -167,7 +167,7 @@
 .modal-popup .paintings-info {
     position: absolute;
     width: 300px;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #f4f1e4;
     object-fit: cover;
 }
 
@@ -214,4 +214,32 @@ form {
     color: white;
     border-radius: 15px;
     padding: 8px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    font-size: 16px;
+}
+
+.w-btn-khaki {
+    background-color: #767725;
+    color: white;
+}
+
+.w-btn:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn:active {
+    transform: scale(1.5);
 }

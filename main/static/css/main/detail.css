@@ -45,3 +45,35 @@
 #content-body-wrapper #my-painting {
     width: 300px;
 }
+
+.w-btn-outline {
+    position: relative;
+    padding: 8px 16px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+.w-btn-indigo-outline {
+    border: 3px solid aliceblue;
+    color: #1e6b7b;
+}
+
+.w-btn-indigo-outline:hover {
+    color: #1e6b7b;
+    background: aliceblue;
+}
+
+.w-btn-outline:hover {
+    letter-spacing: 2px;
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.w-btn-outline:active {
+    transform: scale(1.5);
+}
