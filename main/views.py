@@ -89,4 +89,4 @@ def delete_painting(request):
 
         MyPaintingPicture.objects.get(id=id).delete()
 
-        return render(request, 'user/mypage.html')
+        redirect('mypage')
