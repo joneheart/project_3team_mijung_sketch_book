@@ -67,10 +67,12 @@ li {
 
 }
 
-.picture {
+/*액자-그림은 HTML*/
+.frame {
     text-align: center;
-
+    position: relative;
 }
+
 
 input:focus{
     outline: none;
@@ -119,14 +121,14 @@ input {
     top: 50%;
     left: 50%;
     border-radius: 200px;
-    transform: translateY(2660%) translateX(-50%);
+    transform: translateY(2950%) translateX(-50%);
 }
 
 svg {
     width: 30px;
     position: absolute;
     top: 50%;
-    transform: translateY(800%) translateX(-50%);
+    transform: translateY(890%) translateX(-50%);
     left: 50%;
     right: 0;
 }
