@@ -1,3 +1,4 @@
+/* submit 버튼 */
 var basicTimeline = anime.timeline({
     autoplay: false
 });
@@ -61,3 +62,19 @@ $(".text").click(function () {
     basicTimeline.play();
 });
 
+/* 파일 */
+function readImage(input) {
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+            const previewImage = document.getElementById('preview');
+            previewImage.src = e.target.result;
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+// 이벤트 리스너
+document.getElementById('picture').addEventListener('change', (e) => {
+    readImage(e.target);
+})
