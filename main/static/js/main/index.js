@@ -1,13 +1,19 @@
 
 const mouseEnterMyBtn = (e) => {
     const curClassName = e.target.classList[1];
-    const imgSrc = `/static/images/my-${curClassName}-activate.gif`
+    const lastIndexOfUrl = e.target.getAttribute('src').lastIndexOf('/');
+    const baseUrl = e.target.getAttribute('src').substring(0, lastIndexOfUrl);
+    
+    const imgSrc = `${baseUrl}/my-${curClassName}-activate.gif`
     e.target.setAttribute('src', imgSrc);
 }
 
 const mouseLeaveMyBtn = (e) => {
     const curClassName = e.target.classList[1];
-    const imgSrc = `/static/images/my-${curClassName}-normal.png`
+    const lastIndexOfUrl = e.target.getAttribute('src').lastIndexOf('/');
+    const baseUrl = e.target.getAttribute('src').substring(0, lastIndexOfUrl);
+    
+    const imgSrc = `${baseUrl}/my-${curClassName}-normal.png`
     e.target.setAttribute('src', imgSrc);
 }
 

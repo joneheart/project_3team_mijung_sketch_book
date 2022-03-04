@@ -85,6 +85,15 @@ const doShare = () => {
     infoShareElement.classList.toggle('hide');
 }
 
+const copyToClipboard = (val) => {
+    const t = document.createElement("textarea");
+    document.body.appendChild(t);
+    t.value = val;
+    t.select();
+    document.execCommand('copy');
+    document.body.removeChild(t);
+}
+
 const clickShareButton = (e) => {
     console.log(document.querySelector('#do-share').dataset.id);
     const sharePlatform = e.target.parentElement.id;
@@ -102,22 +111,17 @@ const clickShareButton = (e) => {
         location.href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
     } else {
         // 클립보드
-        navigator.clipboard.writeText(shareUrl).then(function() {
-            // console.log('copied');
-            // show
-            document.querySelector('.speech-bubble').classList.remove('hide');
+        copyToClipboard(shareUrl);
+        document.querySelector('.speech-bubble').classList.remove('hide');
 
-            // position
-            const bubble = document.querySelector('.speech-bubble');
-            bubble.style.top = `${e.target.offsetTop + 35}px`;
+        // position
+        const bubble = document.querySelector('.speech-bubble');
+        bubble.style.top = `${e.target.offsetTop + 35}px`;
 
-            // hide
-            setTimeout(() => {
-                document.querySelector('.speech-bubble').classList.add('hide');
-            }, 1000);
-        }, function() {
-            // console.log('failed');
-        });
+        // hide
+        setTimeout(() => {
+            document.querySelector('.speech-bubble').classList.add('hide');
+        }, 1000);
     }
 }
 
